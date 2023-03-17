@@ -5,7 +5,7 @@ const homeController = async (req, res) => {
     // fetch all users data
     const allUsers = await getUsers()
 
-    res.render("index", {users: allUsers})
+    res.send(allUsers)
 }
 
 export default homeController

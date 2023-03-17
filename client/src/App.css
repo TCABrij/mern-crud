@@ -1,0 +1,8 @@
+.proj-title{
+    /* background-color: #00b894; */
+    background-color: hsl(168, 74%, 38%);
+    padding: 1rem;
+    font-size: large;
+    font-weight: 600;
+    color: white;
+}
