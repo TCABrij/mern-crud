@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-1g-6 col-xl-6 bg-info text-white">
+        <form method="post" action="/adduser">
+            <div class="form-group">
+                <div class="mb-3">
+                    <input type="text" name="name" class="form-control" placeholder="Enter Name">
+                </div>
+                <div class="mb-3">
+                    <input type="email" name="email" class="form-control" placeholder="Enter Email">
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="city" class="form-control" placeholder="Enter City">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div class="col-sm-12 col-md-6 col-1g-6 col-xl-6 bg-info text-white">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.map((user, index)=> { %>
+                    <tr>
+                        <td>
+                            <%= index+1 %>
+                        </td>
+                        <td>
+                            <%= user.name %>
+                        </td>
+                        <td> 
+                            <%= user.email %>
+                        </td>
+                        <td>
+                            <%= user.city %>
+                        </td>
+                        <td class="actions">
+                            <span class="fa fa-edit" data-id="<%= user.id%>" data-name="<%= user.name %>" data-email="<%= user.email %>" data-city="<%= user.city %>"></span>
+                            <a href="/delete?<%= user.id %>" target="_self">
+                                <span class="fa fa-trash"></span>
+                            </a>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+ <!-- Modal window  -->
+ <%- include('./modal') %>

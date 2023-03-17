@@ -1,0 +1,97 @@
+
+<!-- Modal -->
+<div class="modal-window">
+    <div class="modal-box">
+        <h4 class="modal-title">Update</h4>
+        <div class="modal-body">
+            <form action="/update" method="post">
+                <div class="form-group">
+                    <div class="mb-3">
+                        <label>User ID</label>
+                        <input type="text" name="id" id="id" class="form-control" placeholder="" value="" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label>Enter Name</label>
+                        <input type="text" name="name" id="name" required class="form-control" placeholder="Enter Name">
+                    </div>
+                    <div class="mb-3">
+                        <label>Enter Email</label>
+                        <input type="email" name="email" id="email" required class="form-control" placeholder="Enter Email">
+                    </div>
+                    <div class="mb-3">
+                        <label>Enter City</label>
+                        <input type="text" name="city" id="city" required class="form-control" placeholder="Enter City">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="reset" class="btn btn-danger cancel-btn">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--  modal Script  -->
+<script>
+    const modalWindow = document.querySelector('.modal-window')
+    const cancelBtn = document.querySelector('.cancel-btn')
+    const editIcons = document.querySelectorAll('.fa-edit')
+
+    editIcons.forEach( icon => {
+        icon.addEventListener('click', openModal)
+    })
+
+    function openModal(e){
+        const target = e.target
+        const user = {id: target.dataset.id, name: target.dataset.name, email: target.dataset.email, city: target.dataset.city}
+
+        // visible Modal
+        modalWindow.style.display = "grid"
+
+        // insert data to modal inputs
+        document.querySelector('#id').value = user.id
+        document.querySelector('#name').value = user.name
+        document.querySelector('#email').value = user.email
+        document.querySelector('#city ').value = user.city
+
+        console.log(user);
+    }
+
+    // close Modal window
+    cancelBtn.addEventListener('click', ()=>{
+        modalWindow.style.display = "none"
+    })
+</script>
+ <!-- Modal Styles -->
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .modal-window {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, .15);
+        backdrop-filter: blur(5px);
+        place-content: center;
+        overflow: hidden;
+        display: none;
+    }
+
+    .modal-box {
+        background-color: white;
+        /* width: max-content;
+        height: max-content; */
+        position: relative;
+        padding: 1rem;
+    }
+    .cancel-btn{
+        float: right;
+    }
+    .modal-box .btn{
+        margin-top: 1rem;
+    }
+</style>

@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+}
+.title{
+    padding: 1.5rem;
+    background-color: tomato;
+    color: white;
+}
+footer{
+    padding: 2rem;
+    color: white;
+    background-color: black;
+    margin-top: 5rem;
+}
+footer .footer-title{
+    margin-bottom: 2rem;
+}
+.footer-links p{
+    cursor: pointer;
+    padding-left: .5rem;
+}
+.footer-links p:hover{
+    text-decoration: underline;
+}
+
+ /* form main  */
+ .form-control{
+    margin-bottom: 1rem;
+ }
+
+ .actions span:hover{
+    cursor: pointer;
+    scale: 1.1;
+    transition: scale .3s;
+ }
+ .actions span:first-child{
+    margin-right: 1rem;
+ }
+ .actions span:first-child:hover{
+    color: green;
+ }
+ .actions span:last-child:hover{
+    color: tomato;
+ }
+ form{
+    padding: 1rem;
+ }
+
+ .row .col-md-6:first-child{
+    border-right: 3px solid white ;
+ }
+.row{
+    margin: 2rem 0rem;
+}
