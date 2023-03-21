@@ -2,6 +2,8 @@ import express from "express";
 import "dotenv/config";
 import router from "./routes/routes.js";
 import connectDb from "./db/connect.js";
+import cors from 'cors';
+
 
 const app = express();
 
@@ -9,6 +11,9 @@ const app = express();
 const port = process.env.PORT || 5000;
 const localIP = process.env.LOCAL_IP;
 const db_url = process.env.db_url || "mongodb://127.0.0.1/";
+
+// cors
+app.use(cors())
 
 // Parser
 app.use(express.urlencoded({extended: false}));
