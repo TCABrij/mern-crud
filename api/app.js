@@ -3,6 +3,7 @@ import "dotenv/config";
 import router from "./routes/routes.js";
 import connectDb from "./db/connect.js";
 import cors from 'cors';
+import bodyParser from "body-parser";
 
 
 const app = express();
@@ -16,7 +17,8 @@ const db_url = process.env.db_url || "mongodb://127.0.0.1/";
 app.use(cors())
 
 // Parser
-app.use(express.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 // Router
 app.use(router);

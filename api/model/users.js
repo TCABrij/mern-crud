@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     city: String
 })
 
-const userModel = new mongoose.model("user", userSchema)
+const userModel = new mongoose.model("student", userSchema)
 
 
 export default userModel;
